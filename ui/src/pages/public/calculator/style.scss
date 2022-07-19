@@ -1,32 +1,74 @@
-.cal-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 4em;
-}
+@import "src/scss/lib";
 
-.cal-body {
+.cal-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 4em;
+
+  .cal-body {
     display: flex;
     flex-direction: column;
-}
+    border: 1px solid #ddd0d0;
+    border-radius: 5px;
+  }
 
-.display-container {
-    border: 1px solid;
+  .display-container {
+    border: 1px solid #d5d6d7;
     padding: 10px;
     height: 20%;
-    margin-bottom: 20px;
-}
+    margin-bottom: 10px;
+    text-align: right;
 
-.cal-wrapper {
+    #displayFormula {
+      color: #333333;
+      font-size: 1em;
+      margin-bottom: 5px;
+      height: 20px;
+    }
+
+    #display {
+      display: block;
+      height: 40px;
+      text-align: right;
+      line-height: 40px;
+      font-size: 2.3em;
+    }
+  }
+
+  .cal-wrapper {
     display: flex;
-    /* width: 90%; */
-    height: 100%;
     flex-direction: row;
-    column-gap: 15em;
-}
+    padding: 10px;
+    max-width: 20em;
 
-.cal-item {
-    margin-bottom: 12px;
-    cursor: pointer;
+    .number-pad {
+      display: flex;
+      flex-wrap: wrap;
+      width: 15em;
+      justify-content: center;
+
+      .cal-item {
+        @extend %cal-item;
+
+        margin-right: 1em;
+      }
+    }
+
+    .other-buttons {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .cal-item {
+        @extend %cal-item;
+        font-size: 1.3em;
+
+        background: orange;
+        margin-top: 5px;
+      }
+    }
+  }
 }
